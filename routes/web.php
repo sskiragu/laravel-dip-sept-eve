@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,5 +38,9 @@ Route::get('/login', function (){
 Route::get('/signup', function (){
     return view('signup');
 });
+Route::get('/dashboard', function (){
+    return view('dashboard');
+});
 
 Route::post('/process_signup', [UserController::class, 'store'] );
+Route::post('/process_login', [LoginController::class, 'login'] );
