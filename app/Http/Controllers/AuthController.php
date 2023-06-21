@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class LoginController extends Controller
+class AuthController extends Controller
 {
+
     public function login(Request $request){
         $credentials = $request->only('username', 'password');
 
@@ -15,5 +16,10 @@ class LoginController extends Controller
         }else{
             return redirect('/login');
         }
+    }
+
+    public function logout(){
+        Auth::logout();
+        return redirect('/login');
     }
 }
